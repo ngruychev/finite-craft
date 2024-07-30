@@ -25,7 +25,13 @@ html, body {
 .main {
   display: flex;
   flex-grow: 1;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .main {
+    flex-direction: row;
+  }
 }
 
 .word {
@@ -36,6 +42,7 @@ html, body {
   border-radius: 5px;
   user-select: none;
   background-color: var(--color-bg-word);
+  touch-action: none;
 }
 
 .word::before {
@@ -52,25 +59,24 @@ html, body {
 }
 
 .palette {
-  min-width: 100px;
-  height: 100%;
-  width: 33vw;
   background-color: var(--color-bg-palette);
   padding: 2em;
   border: 2px solid var(--color-border-palette);
   border-radius: 5px;
   margin: 5px;
+  overflow-y: auto;
 }
 
 .canvas {
   flex: 1;
-  height: 100%;
+  min-width: 66%;
+  min-height: 66%;
   background-color: var(--color-bg-canvas);
   border: 2px solid var(--color-border-canvas);
   border-radius: 5px;
   padding: 2em;
-  min-height: 200px;
   margin: 5px;
+  touch-action: none;
 }
 
 .resolving {

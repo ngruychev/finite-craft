@@ -114,6 +114,10 @@ function makeDraggable(elem, ondrop) {
     if (draggable.classList.contains("resolving")) {
       return;
     }
+    if (e.clientX === undefined) {
+      e.clientX = e.touches[0].clientX;
+      e.clientY = e.touches[0].clientY;
+    }
     let offsetX = e.clientX - draggable.getBoundingClientRect().left;
     let offsetY = e.clientY - draggable.getBoundingClientRect().top;
 
@@ -126,12 +130,17 @@ function makeDraggable(elem, ondrop) {
       ondrop();
       document.removeEventListener("mousemove", mouseMoveHandler);
       document.removeEventListener("mouseup", mouseUpHandler);
+      document.removeEventListener("touchmove", mouseMoveHandler);
+      document.removeEventListener("touchend", mouseUpHandler);
     }
 
     document.addEventListener("mousemove", mouseMoveHandler);
     document.addEventListener("mouseup", mouseUpHandler);
+    document.addEventListener("touchmove", mouseMoveHandler);
+    document.addEventListener("touchend", mouseUpHandler);
   }
   elem.addEventListener("mousedown", mouseDownHandler);
+  elem.addEventListener("touchstart", mouseDownHandler);
 }
 
 function handleWindowResize() {
