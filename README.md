@@ -73,10 +73,11 @@ Here's plans:
 - [x] Store the emojis in a DB as well, for consistent results and less prompting.
   - And a fundamental difference between this game and the original: in the original, items are considered distinct by their word-emoji combo.
     Only the word matters in my version though.
+- [x] Fix the resize bug. The original handles this by just squeezing your items within the canvas whenever you resize.
+- [ ] Make it playable on mobile.
+- [ ] A bit more styling for better UX.
 - [ ] Dockerize
 - [ ] Flask ratelimit plugin
 - [ ] Host this somewhere. But not yet - see above.
-- [ ] Make it playable on mobile.
-- [x] Fix the resize bug. The original handles this by just squeezing your items within the canvas whenever you resize.
 
 [uses LLaMa]: https://www.gameleap.com/articles/does-infinite-craft-use-ai-explained
