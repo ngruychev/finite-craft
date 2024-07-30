@@ -68,13 +68,11 @@ You can use any model you want, but the ones above are the ones I've tested with
 
 ## Roadmap and known bugs
 
-Don't fucking resize the browser window. _Just please don't_.
-
 Don't try to directly drop items from the sidebar onto other items on the workspace. Place them both on the workspace, and combine them there.
 
 Don't play this on a phone, over there it's for looking only.
 
-My bad for all of those. One day they'll get fixed.
+My bad for of those. One day they'll get fixed.
 I wrote this in under 48h in between actual work, personal life, and avoiding a sleep schedule like the plague.
 I mean, what do you expect?
 
@@ -87,6 +85,6 @@ Here's plans:
 - [ ] Flask ratelimit plugin
 - [ ] Host this somewhere. But not yet - see above.
 - [ ] Make it playable on mobile.
-- [ ] Fix the resize bug. The original handles this by just squeezing your items within the canvas whenever you resize. I ain't got time for that tho.
+- [x] Fix the resize bug. The original handles this by just squeezing your items within the canvas whenever you resize.
 
 [uses LLaMa]: https://www.gameleap.com/articles/does-infinite-craft-use-ai-explained

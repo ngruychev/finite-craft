@@ -131,6 +131,21 @@ function makeDraggable(elem, ondrop) {
   elem.addEventListener("mousedown", mouseDownHandler);
 }
 
+function handleWindowResize() {
+  const CANVAS_EDGE_OFFSET = 10;
+  const canvas = document.getElementById("canvas");
+  const { right, bottom } = canvas.getBoundingClientRect();
+  for (const elem of canvas.getElementsByClassName("word")) {
+    const { right: elemRight, bottom: elemBottom, x, y } = elem.getBoundingClientRect();
+    if (elemRight > right) {
+      elem.style.left = `${x - (elemRight - right) - CANVAS_EDGE_OFFSET}px`;
+    }
+    if (elemBottom > bottom) {
+      elem.style.top = `${y - (elemBottom - bottom) - CANVAS_EDGE_OFFSET}px`;
+    }
+  }
+}
+
 const START_WORDS = [
   { word: "air", firstDiscovery: false, emoji: "💨" },
   { word: "water", firstDiscovery: false, emoji: "💧" },
@@ -162,6 +177,7 @@ function addToPalette({ word, firstDiscovery = false, emoji = "❔" }) {
 }
 
 function init() {
+  window.addEventListener("resize", handleWindowResize);
   for (const { word, firstDiscovery, emoji } of INIT_WORDS) {
     addToPalette({ word, firstDiscovery, emoji });
   }
