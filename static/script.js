@@ -34,8 +34,11 @@ function drop(ev) {
   const elem = newWord(word, emoji);
   elem.style.top = `${ev.clientY - offsetY}px`;
   elem.style.left = `${ev.clientX - offsetX}px`;
-  makeDraggable(elem, onDropFactory(ev.target, elem));
-  ev.target.appendChild(elem);
+  const canvas = document.getElementById("canvas");
+  const listener = onDropFactory(canvas, elem);
+  makeDraggable(elem, listener);
+  canvas.appendChild(elem);
+  listener(); // check for immediate overlap
 }
 
 async function combineWords(elem1, elem2) {

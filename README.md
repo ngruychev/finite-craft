@@ -68,14 +68,6 @@ You can use any model you want, but the ones above are the ones I've tested with
 
 ## Roadmap and known bugs
 
-Don't try to directly drop items from the sidebar onto other items on the workspace. Place them both on the workspace, and combine them there.
-
-Don't play this on a phone, over there it's for looking only.
-
-My bad for of those. One day they'll get fixed.
-I wrote this in under 48h in between actual work, personal life, and avoiding a sleep schedule like the plague.
-I mean, what do you expect?
-
 Here's plans:
 
 - [x] Store the emojis in a DB as well, for consistent results and less prompting.
