@@ -4,12 +4,13 @@ from datetime import datetime
 
 from flask import Flask, render_template, request
 
-from craft import existing_or_generate, prepare_db, make_emoji, try_combo
+from craft import existing_or_generate, prepare_db, make_emoji, existing_emoji_or_generate, try_combo
 
 app = Flask(__name__)
 
 ingredient_db = {}
 combos_db = {}
+emoji_db = {}
 
 @app.get('/')
 def index():
@@ -22,14 +23,13 @@ def craft():
     combo, first_discovery = existing_or_generate(ingredient_db, combos_db, first, second)
     if combo == None:
         return { 'error': 'Not found' }, 404
-    emoji = make_emoji(combo)
+    emoji = existing_emoji_or_generate(emoji_db, combo)
     return { 'combo': combo, 'first_discovery': first_discovery, 'emoji': emoji }
 
 
 if __name__ == '__main__':
     ingredient_db = dbm.open('data/ingredients.db', 'c')
     combos_db = dbm.open('data/combos.db', 'c')
-    # TODO make this useful
     emojis_db = dbm.open('data/emojis.db', 'c')
     prepare_db(ingredient_db, combos_db)
 

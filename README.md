@@ -57,10 +57,14 @@ I've developed this with the following models in mind:
 - [Phi-3 Mini 128k Instruct Q4 K_M](https://huggingface.co/MoMonir/Phi-3-mini-128k-instruct-GGUF/tree/main)
   - main thing I used for dev. Good trade-off between fast and reliable.
 - [Phi-3 Mini 4k Instruct Q4](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/tree/main)
-  - ehh. Was fast-ish for developing.
+  - Ehh. Was fast-ish for developing.
 - [OpenELM-1 1B Instruct - either Q5 K_M or Q8](https://huggingface.co/LiteLLMs/OpenELM-1_1B-Instruct-GGUF/tree/main)
   - Very fast. Not very smart. Phi-3 gets hailed as the best for mobile devices, but this is the real deal.
-    Unfortunately, you need `llama_cpp_python>=0.2.82` for this to work. And [guidance doesn't work well with this version for this specific app I've made](https://github.com/guidance-ai/guidance/issues/859). Wait, I guess. It's not like the others are too damn slow.
+    Unfortunately, you need `llama_cpp_python>=0.2.82` for this to work.
+    And [guidance doesn't work too well with this version for this specific app I've made](https://github.com/guidance-ai/guidance/issues/859).
+    If you want to use this, then wait, I guess. It's not like the others are too damn slow.
+
+You can use any model you want, but the ones above are the ones I've tested with.
 
 ## Roadmap and known bugs
 
@@ -76,8 +80,9 @@ I mean, what do you expect?
 
 Here's plans:
 
-- [ ] Store the emojis in a DB as well, for consistent results and less prompting.
-  - And a fundamental difference between this game and the original: in the original, items are considered distinct by their word-emoji combo. Only the word matters in my version though.
+- [x] Store the emojis in a DB as well, for consistent results and less prompting.
+  - And a fundamental difference between this game and the original: in the original, items are considered distinct by their word-emoji combo.
+    Only the word matters in my version though.
 - [ ] Dockerize
 - [ ] Flask ratelimit plugin
 - [ ] Host this somewhere. But not yet - see above.

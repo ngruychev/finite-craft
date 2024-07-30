@@ -122,6 +122,13 @@ def make_emoji(word):
         return "❔"
     return emoji_only
 
+def existing_emoji_or_generate(emoji_db, word):
+    if word in emoji_db:
+        return emoji_db[word]
+    emoji = make_emoji(word)
+    emoji_db[word] = emoji
+    return emoji
+
 def prepare_combination_query():
     init_prompt = 'Formulas, dictionary, recipes, alchemy, chemistry, combinations, crafting, NONSENSICAL. <ingredient> + <ingredient> = <combination but different>. Offensive terms allowed.'
     examples = '\n'.join(str(f) for f in formulas)
