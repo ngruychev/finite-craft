@@ -20,12 +20,14 @@ class Formula:
     first_ingredient: str
     second_ingredient: str
     result: str
+    emoji: str
 
     def __init__(self, first, second, result):
         first_ingredient, second_ingredient = sorted([first, second])
         self.first_ingredient = first_ingredient
         self.second_ingredient = second_ingredient
         self.result = result
+        self.emoji = ""
 
     def __str__(self):
         return f'{self.first_ingredient} + {self.second_ingredient} = {self.result}'
@@ -147,7 +149,7 @@ def gen_combination(first, second):
     combination = ''
     while (combination == first_ingredient or combination == second_ingredient or combination == '') and retries > 0:
         temp = 1/retries*2.5 # get more unhinged as retries go down
-        res = prepared + query + gen(regex=r"([a-z \-]+|!NONSENSICAL!)", max_tokens=10, stop_regex=r"\s", name="combination", temperature=temp)
+        res = prepared + query + gen(regex=r"([a-z \-]+|!NONSENSICAL!)", max_tokens=10, stop_regex=r"\n", name="combination", temperature=temp)
         combination = res['combination']
         retries -= 1
 
@@ -173,7 +175,8 @@ def existing_or_generate(ingredient_db, combo_db, first, second):
         return None, first_discovery
     if f'{first_ingredient} + {second_ingredient}' in combo_db:
         combo = combo_db[f'{first_ingredient} + {second_ingredient}']
-        combo = combo.decode()
+        if type(combo) == bytes:
+            combo = combo.decode()
         if combo == '!NONSENSICAL!':
             print("NONSENSICAL!", first_ingredient, second_ingredient)
             return None, first_discovery

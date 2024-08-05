@@ -46,4 +46,4 @@ if __name__ == '__main__':
     end = datetime.now()
     print('Warmed up in', end - start)
 
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, threaded=False)
