@@ -9,7 +9,7 @@ Like the beloved [Infinite Craft](https://neal.fun/infinite-craft/) but:
   - Explanation: Infinite Craft _allegedly_ [uses LLaMa] and a cloud service geared specifically towards AI workloads to make the magic happen.
     Mine was made with business/low end laptops with no GPU in mind.
 
-Play it online here: **(soon™)**
+Play it online here: [GitHub CodeSpace port forward](https://fluffy-winner-45ggvrw5x6f5qq9-5000.app.github.dev/)
 
 ## How is it possible?
 
