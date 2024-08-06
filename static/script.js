@@ -186,6 +186,7 @@ function addToPalette({ word, firstDiscovery = false, emoji = "❔" }) {
   elem.draggable = true;
   elem.ondragstart = (ev) => drag(ev);
   palette.appendChild(elem);
+  handleWindowResize();
 }
 
 function init() {

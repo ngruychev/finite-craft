@@ -3,10 +3,18 @@ import dbm
 from datetime import datetime
 
 from flask import Flask, render_template, request
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 from craft import existing_or_generate, prepare_db, make_emoji, existing_emoji_or_generate, try_combo
 
 app = Flask(__name__)
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["2000 per day", "400 per hour"],
+    storage_uri="memory://",
+)
 
 ingredient_db = {}
 combos_db = {}

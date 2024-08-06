@@ -4,6 +4,7 @@
   --color-border-canvas: #fcc;
   --color-border-palette: #cfc;
   --color-bg-word: #ffe;
+  --color-bg-word-hover: #ffa;
   --color-bg-word-first: #ff0;
   --color-border-word: #ccf;
 }
@@ -48,6 +49,10 @@ html, body {
 .word::before {
   content: attr(data-emoji);
   padding-right: 5px;
+}
+
+.word:hover {
+  background-color: var(--color-bg-word-hover);
 }
 
 .word.first-discovery {

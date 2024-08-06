@@ -1,4 +1,5 @@
 guidance==0.1.15
 llama_cpp_python==0.2.75
 flask==2.3.3
+flask_limiter=3.8.0
 emoji==2.12.1
