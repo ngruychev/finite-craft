@@ -37,6 +37,16 @@ pip install -r requirements.txt
 MODEL_PATH=/wherever/your/llama-cpp/gguf-model/is-located/model.gguf python3 app.py
 ```
 
+For PowerShell (Windows):
+```powershell
+# mostly the same commands, but a little different
+python3 -m venv venv
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+./venv/bin/Activate.ps1
+$env:MODEL_PATH='C:\Path\To\Your\Model.gguf'
+python3 app.py
+```
+
 For this initial version, you can disregard Flask's nagging.
 No, you don't need a dedicated multi-threaded wrapper like Gunicorn or uWSGI.
 For now.
